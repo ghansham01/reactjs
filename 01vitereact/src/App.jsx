@@ -1,9 +1,12 @@
 
 
 function App() {
-
+  const name = 'vite'
   return (
-    <h1>Hello Vite + React!</h1>  
+    <>
+    <h1>chai aur react {name}</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+    </>
   )
 }
 

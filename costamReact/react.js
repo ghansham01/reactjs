@@ -1,4 +1,5 @@
 function customRender(reactElement, container){
+    // basic approach
     /*
     const domElement = document.createElement(reactElement.type)
     domElement.innerHTML = reactElement.children
@@ -7,7 +8,7 @@ function customRender(reactElement, container){
 
     container.appendChild(domElement)
     */
-
+    // more generic approach
     const domElement = document.createElement(reactElement.type)
     domElement.innerHTML = reactElement.children
     for (const prop in reactElement.props) {
