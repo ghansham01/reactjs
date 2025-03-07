@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
+import { useState, useCallback,useEffect ,useRef} from 'react'
 
 function App() {
   const [length, setLength] = useState(8)
@@ -6,9 +6,10 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
 
-  //useRef hook
+  // useRef is used to get the reference of the input field
   const passwordRef = useRef(null)
 
+  // useCallback is used to prevent the function from being recreated on every render
   const passwordGenerator = useCallback(() => {
     let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -23,18 +24,19 @@ function App() {
 
     setPassword(pass)
 
-
   }, [length, numberAllowed, charAllowed, setPassword])
 
   const copyPasswordToClipboard = useCallback(() => {
-    passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 999);
+    passwordRef.current?.select()
     window.navigator.clipboard.writeText(password)
-  }, [password])
+  }, 
+  [password])
 
-  // useEffect(() => {
-  //   passwordGenerator()
-  // }, [length, numberAllowed, charAllowed, passwordGenerator])
+  // useEffect is used to run the function on the initial render
+  useEffect(() => {
+    passwordGenerator()
+  }, [length, numberAllowed, charAllowed, passwordGenerator])
+  
   return (
     
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
