@@ -21,10 +21,9 @@ function useCurrencyInfo(currency) {
   useEffect(() => {
     fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
       .then((res) => res.json())
-      .then((res) => setData(res[currency]))
-    //   .catch((error) => console.error("Error fetching currency data:", error));
+      .then((res) => setData(res.rates || {}))
+      .catch((error) => console.error("Error fetching currency data:", error));
   }, [currency]);
-  console.log(data);
   return data;
 }
 
