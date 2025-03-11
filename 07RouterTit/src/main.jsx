@@ -4,9 +4,9 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
 import Layout from './Layout.jsx'
-import Home from './compnents/home/Home.jsx'
-import About from './compnents/about/About.jsx'
-import Contact from './compnents/contect/Contect.jsx'
+import Home from './components/home/Home.jsx'
+import About from './components/about/About.jsx'
+import Contact from './components/contact/Contact.jsx'
 
 // import Github from './components/github/Github.jsx'
 
