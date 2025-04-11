@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import { ProSidebarProvider } from 'react-pro-sidebar'
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import { ColorModeContext, useMode } from './theme'
-import { CssBaseline, ThemeProvider } from '@mui/material'
-import Topbar from './scenes/Global/Topbar'
-import Sidebar from './scenes/Global/sidbar'
-// import Dashbord from './scenes/dashbord'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Topbar from "./scene/global/topbar";
+import MultipleSidBar from "./scene/global/Sidbar";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
 
 
 function App() {
-  const [theme, colorMode] = useMode()
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <ProSidebarProvider>
-          <CssBaseline />
-          <div className='app'>
-            <Sidebar isSidebarOpen={isSidebarOpen}/>
-            <main>
-              <Topbar/>
-              <Routes>
-                {/* <Route path='' element={<Dashbord/>}/> */}
-              </Routes>
-            </main>
-          </div>
-        </ProSidebarProvider>
+        <CssBaseline />
+        <div className="app">
+          <MultipleSidBar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+           
+          </main>
+        </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-  )
+  );
 }
 
-export default App
+export default App;

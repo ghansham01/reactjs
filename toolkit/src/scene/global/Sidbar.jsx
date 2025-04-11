@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -27,36 +27,37 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       }}
       onClick={() => setSelected(title)}
       icon={icon}
-      component={<Link to={to} />}
     >
       <Typography>{title}</Typography>
+      <Link to={to} />
     </MenuItem>
   );
 };
 
-const SidebarComponent = () => {
+const MultipleSidBar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
-
+  const [selected, setSelected] = useState("Dashboard");
 
   return (
     <Box
       sx={{
-        "& .ps-sidebar-root": {
+        "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
-          border: "none"
         },
-        "& .ps-menu-button": {
+        "& .pro-icon-wrapper": {
+          backgroundColor: "transparent !important",
+        },
+        "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
-          "&:hover": {
-            color: "#868dfb !important",
-            backgroundColor: "transparent !important"
-          }
         },
-        "& .ps-menu-button.ps-active": {
-          color: "#6870fa !important"
-        }
+        "& .pro-inner-item:hover": {
+          color: "#868dfb !important",
+        },
+        "& .pro-menu-item.active": {
+          color: "#6870fa !important",
+        },
       }}
     >
       <Sidebar collapsed={isCollapsed}>
@@ -64,7 +65,7 @@ const SidebarComponent = () => {
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined }
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
               color: colors.grey[100],
@@ -223,4 +224,4 @@ const SidebarComponent = () => {
   );
 };
 
-export default SidebarComponent;
+export default MultipleSidBar;
