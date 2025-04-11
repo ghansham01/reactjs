@@ -14,9 +14,9 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="app">
+        <div className="app flex">
           <MultipleSidBar isSidebar={isSidebar} />
-          <main className="content">
+          <main className="content" >
             <Topbar setIsSidebar={setIsSidebar} />
            
           </main>
