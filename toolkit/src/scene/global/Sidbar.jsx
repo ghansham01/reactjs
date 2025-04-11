@@ -20,17 +20,19 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
+    <Link to={to} style={{ textDecoration: 'none' }}>
+      <MenuItem
+        component="div"
+        active={selected === title}
+        style={{
+          color: colors.grey[100],
+        }}
+        onClick={() => setSelected(title)}
+        icon={icon}
+      >
+        <Typography>{title}</Typography>
+      </MenuItem>
+    </Link>
   );
 };
 
@@ -43,24 +45,22 @@ const MultipleSidBar = () => {
   return (
     <Box
       sx={{
-        "& .pro-sidebar-inner": {
+        "& .ps-sidebar-container": {
           background: `${colors.primary[400]} !important`,
         },
-        "& .pro-icon-wrapper": {
+        "& .ps-sidebar-root": {
+          border: "none !important",
+        },
+        "& .ps-menu-button:hover": {
           backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-inner-item:hover": {
           color: "#868dfb !important",
         },
-        "& .pro-menu-item.active": {
+        "& .ps-menu-button.ps-active": {
           color: "#6870fa !important",
         },
       }}
     >
-      <Sidebar collapsed={isCollapsed}>
+      <Sidebar collapsed={isCollapsed} backgroundColor={colors.primary[400]}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -95,7 +95,7 @@ const MultipleSidBar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src="/assets/user.png"
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
