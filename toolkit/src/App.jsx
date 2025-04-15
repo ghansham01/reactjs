@@ -9,6 +9,7 @@ import Team from "./scene/team/Index";
 import Contects from "./scene/content/ConInfo";
 import Invoice from "./scene/invece";
 import From from "./scene/from/Index";
+import Calender from "./scene/calender";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/contacts" element={<Contects/>}/>
               <Route path="/invoices" element={<Invoice/>}/>
               <Route path="/form" element={<From/>}/>
+              <Route path="/calendar" element={<Calender/>}/>
             </Routes>
           </main>
         </div>
