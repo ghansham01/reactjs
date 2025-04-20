@@ -70,32 +70,34 @@ export default function Footer() {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center">
-                        © 2023
-                        <a href="https://hiteshchoudhary.com/" className="hover:underline">
-                            hiteshchoudhary
-                        </a>
-                        . All Rights Reserved.
-                    </span>
+                    <Link to="/about" >
+                        <span className="text-sm text-gray-500 sm:text-center">
+                            © 2023
+                            <a href="https://hiteshchoudhary.com/" className="hover:underline">
+                                hiteshchoudhary
+                            </a>
+                            . All Rights Reserved.
+                        </span>
+                    </Link>
                     <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                         <Link to="#" className="text-gray-500 hover:text-gray-900">
-                            
+
                             <span className="sr-only">Facebook page</span>
                         </Link>
                         <Link to="#" className="text-gray-500">
-                            
+
                             <span className="sr-only">Discord community</span>
                         </Link>
                         <Link to="#" className="text-gray-500">
-                            
+
                             <span className="sr-only">Twitter page</span>
                         </Link>
                         <Link to="#" className="text-gray-500">
-                            
+
                             <span className="sr-only">GitHub account</span>
                         </Link>
                         <Link to="#" className="text-gray-500">
-                            
+
                             <span className="sr-only">Dribbble account</span>
                         </Link>
                     </div>

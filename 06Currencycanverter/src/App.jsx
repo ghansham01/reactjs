@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { InputBox } from './components'
 import useCurrencyInfo from './hooks/useCurrency'
-
+import { Link } from "react-router-dom";
+import Biling from './Biling';
 
 function App() {
 
@@ -74,6 +75,11 @@ function App() {
             <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
               Convert {from.toUpperCase()} to {to.toUpperCase()}
             </button>
+            <Link to='/billing' className="block mt-3">
+              <button className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                Billing Details
+              </button>
+            </Link>
           </form>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import './App.css'
 import Topbar from "./scene/global/Topbar";
 import MultipleSidBar from "./scene/global/Sidbar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -10,6 +11,7 @@ import Contects from "./scene/content/ConInfo";
 import Invoice from "./scene/invece";
 import From from "./scene/from/Index";
 import Calender from "./scene/calender";
+import FAQ from "./scene/faq";
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
               <Route path="/invoices" element={<Invoice/>}/>
               <Route path="/form" element={<From/>}/>
               <Route path="/calendar" element={<Calender/>}/>
+              <Route path="/faq" element={<FAQ/>}/>
             </Routes>
           </main>
         </div>
